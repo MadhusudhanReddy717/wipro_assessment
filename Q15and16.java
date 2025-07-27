@@ -41,3 +41,15 @@ public class Q15and16 {
         q.q16();
     }
 }
+/*
+Q15: Frequency of elements:
+2 occurred 2 times
+3 occurred 2 times
+54 occurred 2 times
+1 occurred 1 times
+6 occurred 1 times
+7 occurred 2 times
+
+Enter the mark (0-100) for student 1:
+*/
+
