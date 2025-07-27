@@ -31,3 +31,10 @@ public class Q31 {
         sc.close();
     }
 }
+/*
+Q31: Enter an integer: 22
+Entered number: 22
+Enter a string: Madhu
+Enter an index to access: 3
+Character at index 3: h
+*/
