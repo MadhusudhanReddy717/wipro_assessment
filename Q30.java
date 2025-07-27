@@ -25,3 +25,9 @@ public class Q30 {
         sc.close();
     }
 }
+/*
+Enter first float: 20.00
+Enter second float: 87.00
+Enter third float: 88.00
+Q30: Smallest value is: 20.0
+*/
