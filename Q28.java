@@ -44,3 +44,29 @@ public class Q28 {
         }
     }
 }
+/*
+Number: 3
+Is Odd? true
+Is Prime? true
+Is Palindrome? true
+
+Number: 10
+Is Odd? false
+Is Prime? false
+Is Palindrome? false
+
+Number: 121
+Is Odd? true
+Is Prime? false
+Is Palindrome? true
+
+Number: 7
+Is Odd? true
+Is Prime? true
+Is Palindrome? true
+
+Number: 22
+Is Odd? false
+Is Prime? false
+Is Palindrome? true
+*/
