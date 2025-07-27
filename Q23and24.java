@@ -64,3 +64,31 @@ public class Q23and24 {
         q.q24();
     }
 }
+/*
+Q23.1: This is the first room while entering the house
+
+Q23.2: Kitchen appliances:
+Fridge
+Oven
+Microwave
+Toaster
+
+Q23.3: Copied appliances array:
+Fridge
+Oven
+Microwave
+Toaster
+
+Q24: Enter speeds of 5 racers:
+30
+89
+90
+87
+122
+Average speed: 83.6
+Racers who qualified (speed > average):
+89.0
+90.0
+87.0
+122.0
+*/
