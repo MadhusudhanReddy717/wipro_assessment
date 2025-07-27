@@ -118,3 +118,20 @@ public class Q17and18 {
         q.q18();
     }
 }
+/*
+Q17: Vehicle Demonstration:
+Volvo Truck engine started.
+Truck is loading cargo.
+Volvo Truck engine stopped.
+City Bus engine started.
+Bus is picking up passengers.
+City Bus engine stopped.
+Sedan Car engine started.
+Car is playing music.
+Sedan Car engine stopped.
+
+Q18: Animal Characteristics in Vandalur Zoo:
+Lion: Vegetarian: false, Can Climb: true, Sound: Roar
+Deer: Vegetarian: true, Can Climb: false, Sound: Bleat
+Monkey: Vegetarian: true, Can Climb: true, Sound: Chatter
+*/
