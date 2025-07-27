@@ -79,3 +79,21 @@ public class Q22 {
         square.size(8);
     }
 }
+/*
+Line Details:
+Line Drawing Color: Black
+Line Thickness: 2
+
+Circle Details:
+Circle Drawing Color: Red
+Circle Thickness: 3
+Circle Filling Color: Blue
+Circle Size: 10
+
+Square Details:
+Square Drawing Color: Green
+Square Thickness: 4
+Square Filling Color: Yellow
+Square Size: 8
+*/
+
