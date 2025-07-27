@@ -93,3 +93,16 @@ class Current extends Bank {
         return balance;
     }
 }
+/*
+Q19: Bank Account Balances:
+S101, Madhu, Gender: Female, Job: Teacher, Balance: 5000.0, Final Balance: 5250.0
+C102, Siva, Gender: Male, Job: Engineer, Balance: 7000.0, Final Balance: 7060.0
+S103, Ravi, Gender: Male, Job: Clerk, Balance: 6000.0, Final Balance: 6240.0
+C104, Lakshmi, Gender: Female, Job: Manager, Balance: 8000.0, Final Balance: 8160.0
+
+Customer found: C102, Siva, Gender: Male, Job: Engineer, Balance: 7000.0
+
+Total Current Account Holders: 2
+Total Balance in Current Accounts: 15220.0
+*/
+
