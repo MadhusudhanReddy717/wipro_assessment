@@ -41,3 +41,12 @@ public class Q25 {
         sc.close();
     }
 }
+/*
+Enter side a (or -1 to exit): 7
+Enter side b: 7
+Enter side c: 8
+Area: 22.98
+Perimeter: 22.00
+Enter side a (or -1 to exit): -1
+Bye~
+*/
