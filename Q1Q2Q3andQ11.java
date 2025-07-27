@@ -60,3 +60,14 @@ public class Q1Q2Q3andQ11 {
         q11.div(10, 5);
     }
 }
+/*
+Q1 result: 20
+Q2 result: 20
+
+Q3: Girls who got grade A: 25
+
+Q11 Add: 15
+Q11 Diff: 5
+Q11 Mul: 50
+Q11 Div: 2.0
+*/
