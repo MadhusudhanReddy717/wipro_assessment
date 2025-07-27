@@ -46,3 +46,11 @@ public class Q34 {
         return id.matches("\\d{2}-[FS]-\\d{3}");
     }
 }
+/*
+Enter Employee ID (format: YY-D-XXX): 99-F-099
+Enter Name: Madhu
+Enter Year of Birth: 2003
+Employee ID: 99-F-099
+Name: Madhu
+Year of Birth: 2003
+*/
