@@ -44,3 +44,14 @@ public class Q26and27 {
         q.q27();
     }
 }
+/*
+Q26: Sum of even numbers after removing duplicates: 62
+
+Q27: Paper Currency Info:
+ONE: Smallest denomination.
+FIVE: Used frequently for small purchases.
+TEN: Commonly used note.
+TWENTY: Useful for medium transactions.
+FIFTY: Large denomination note.
+HUNDRED: Highest standard denomination.
+*/
