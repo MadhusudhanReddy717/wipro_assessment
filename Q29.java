@@ -47,3 +47,8 @@ public class Q29 {
         }
     }
 }
+/*
+Enter Register Number: 970AAB56
+Enter Mobile Number: 9701065157
+Invalid: Register number must be exactly 9 characters.
+*/
