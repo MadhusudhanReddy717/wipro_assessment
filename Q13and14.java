@@ -78,3 +78,18 @@ public class Q13and14 {
         q.q14();
     }
 }
+
+/*
+Q13: Worker Pay Calculation:
+DailyWorker Pay: 500.0
+SalariedWorker Pay: 8000.0
+
+Q14: Shape Calculations:
+Area of square: 25.0
+Area of rectangle: 24.0
+
+Perimeter of square: 20.0
+Perimeter of rectangle: 20.0
+*/
+
+
