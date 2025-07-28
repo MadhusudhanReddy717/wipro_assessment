@@ -30,5 +30,5 @@ public class Q1FactorialTest {
 Expected Output:
 Test run: Passed
 - testValidFactorials() will check factorials for 0, 1, 5, 10
-- testNegativeInputThrowsException() will pass if exception is thrown for -5
+- testNegativeInputThrowsException() will pass if exception is thrown for -5 
 */
