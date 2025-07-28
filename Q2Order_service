@@ -1,0 +1,41 @@
+// File: OrderServiceTest.java
+
+import org.junit.jupiter.api.Test;
+import static org.mockito.Mockito.*;
+
+class PaymentService {
+    public void processPayment(String orderId) {
+        // Real logic (mocked in test)
+    }
+}
+
+class OrderService {
+    private PaymentService paymentService;
+
+    public OrderService(PaymentService paymentService) {
+        this.paymentService = paymentService;
+    }
+
+    public void placeOrder(String orderId) {
+        // Some business logic...
+        paymentService.processPayment(orderId);
+    }
+}
+
+public class OrderServiceTest {
+
+    @Test
+    void testPlaceOrderCallsProcessPaymentOnce() {
+        PaymentService mockPaymentService = mock(PaymentService.class);
+        OrderService orderService = new OrderService(mockPaymentService);
+
+        orderService.placeOrder("ORD123");
+
+        verify(mockPaymentService, times(1)).processPayment("ORD123");
+    }
+}
+
+/*
+Expected Output:
+✅ Test passes because processPayment("ORD123") is called exactly once.
+*/
