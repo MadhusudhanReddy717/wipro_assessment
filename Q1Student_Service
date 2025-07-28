@@ -1,0 +1,55 @@
+// File: StudentServiceTest.java
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+class Student {
+    private int id;
+    private String name;
+
+    public Student(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+interface StudentRepository {
+    Student findById(int id);
+}
+
+class StudentService {
+    private StudentRepository repo;
+
+    public StudentService(StudentRepository repo) {
+        this.repo = repo;
+    }
+
+    public String getStudentById(int id) {
+        Student student = repo.findById(id);
+        return (student != null) ? student.getName() : null;
+    }
+}
+
+public class StudentServiceTest {
+
+    @Test
+    void testGetStudentById() {
+        StudentRepository mockRepo = mock(StudentRepository.class);
+        when(mockRepo.findById(1)).thenReturn(new Student(1, "Alice"));
+
+        StudentService service = new StudentService(mockRepo);
+        String name = service.getStudentById(1);
+
+        assertEquals("Alice", name);
+    }
+}
+
+/*
+Expected Output:
+Test passes because getStudentById(1) correctly returns "Alice" from the mocked repository.
+*/
