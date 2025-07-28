@@ -40,3 +40,9 @@ public class Q45 {
         }
     }
 }
+/*
+Students Grouped by Department:
+EEE: David
+CSE: Alice, Charlie
+ECE: Bob, Eve
+*/
