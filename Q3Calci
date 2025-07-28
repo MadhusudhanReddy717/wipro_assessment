@@ -1,0 +1,35 @@
+// File: CalculatorTest.java
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class Calculator {
+    public int divide(int a, int b) {
+        if (b == 0) {
+            throw new IllegalArgumentException("Divisor cannot be zero");
+        }
+        return a / b;
+    }
+}
+
+public class CalculatorTest {
+
+    @Test
+    void testDivideByNonZero() {
+        Calculator calc = new Calculator();
+        int result = calc.divide(10, 2);
+        assertEquals(5, result);
+    }
+
+    @Test
+    void testDivideByZeroThrowsException() {
+        Calculator calc = new Calculator();
+        assertThrows(IllegalArgumentException.class, () -> calc.divide(10, 0));
+    }
+}
+
+/*
+Expected Output:
+✅ testDivideByNonZero passes: 10 / 2 = 5
+✅ testDivideByZeroThrowsException passes: Exception is correctly thrown
+*/
