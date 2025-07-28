@@ -1,0 +1,36 @@
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class StringUtil {
+    public static String reverse(String input) {
+        if (input == null) return null;
+        return new StringBuilder(input).reverse().toString();
+    }
+}
+
+public class Q2StringReversalTest {
+
+    @Test
+    void testReverseRegularString() {
+        assertEquals("dcba", StringUtil.reverse("abcd"));
+        assertEquals("987654321", StringUtil.reverse("123456789"));
+    }
+
+    @Test
+    void testReverseEmptyString() {
+        assertEquals("", StringUtil.reverse(""));
+    }
+
+    @Test
+    void testReverseNull() {
+        assertNull(StringUtil.reverse(null));
+    }
+}
+
+/*
+Expected Output:
+Test run: Passed
+- testReverseRegularString(): "abcd" → "dcba", "123456789" → "987654321"
+- testReverseEmptyString(): "" → ""
+- testReverseNull(): null → null
+*/
