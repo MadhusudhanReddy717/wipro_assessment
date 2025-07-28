@@ -1,0 +1,47 @@
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class LoginService {
+    public boolean validate(String username, String password) {
+        if (username == null || password == null) throw new IllegalArgumentException("Username or password is null");
+        if (username.isEmpty() || password.isEmpty()) return false;
+        return username.equals("admin") && password.equals("password123");
+    }
+}
+
+public class Q3LoginValidationTest {
+
+    LoginService loginService = new LoginService();
+
+    @Test
+    void testValidLogin() {
+        assertTrue(loginService.validate("admin", "password123"));
+    }
+
+    @Test
+    void testInvalidLogin() {
+        assertFalse(loginService.validate("admin", "wrongpass"));
+        assertFalse(loginService.validate("user", "password123"));
+    }
+
+    @Test
+    void testEmptyCredentials() {
+        assertFalse(loginService.validate("", ""));
+        assertFalse(loginService.validate("admin", ""));
+    }
+
+    @Test
+    void testNullCredentials() {
+        assertThrows(IllegalArgumentException.class, () -> loginService.validate(null, "password123"));
+        assertThrows(IllegalArgumentException.class, () -> loginService.validate("admin", null));
+    }
+}
+
+/*
+Expected Output:
+Test run: Passed
+- testValidLogin(): "admin/password123" → true
+- testInvalidLogin(): invalid combinations → false
+- testEmptyCredentials(): empty fields → false
+- testNullCredentials(): exception thrown (IllegalArgumentException)
+*/
