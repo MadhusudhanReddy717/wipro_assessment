@@ -61,3 +61,16 @@ public class Q46 {
         repo.findAll().forEach(System.out::println);
     }
 }
+/*
+All Employees:
+Employee{id=101, name='Alice', salary=50000.0}
+Employee{id=102, name='Bob', salary=60000.0}
+Employee{id=103, name='Charlie', salary=55000.0}
+
+Employee with ID 102:
+Employee{id=102, name='Bob', salary=60000.0}
+
+Employees after deleting ID 101:
+Employee{id=102, name='Bob', salary=60000.0}
+Employee{id=103, name='Charlie', salary=55000.0}
+*/
