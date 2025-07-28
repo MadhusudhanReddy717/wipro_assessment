@@ -1,0 +1,134 @@
+// File: AccountServiceTest.java
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
+
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+class Account {
+    private int id;
+    private double balance;
+
+    public Account(int id, double balance) {
+        this.id = id;
+        this.balance = balance;
+    }
+
+    public int getId() { return id; }
+    public double getBalance() { return balance; }
+    public void debit(double amount) { this.balance -= amount; }
+    public void credit(double amount) { this.balance += amount; }
+}
+
+interface AccountRepository {
+    Optional<Account> findById(int id);
+    void update(Account account);
+}
+
+interface NotificationService {
+    void send(String message);
+}
+
+class AccountService {
+    private AccountRepository repo;
+    private NotificationService notifier;
+
+    public AccountService(AccountRepository repo, NotificationService notifier) {
+        this.repo = repo;
+        this.notifier = notifier;
+    }
+
+    public boolean transfer(int fromId, int toId, double amount) {
+        Optional<Account> fromOpt = repo.findById(fromId);
+        Optional<Account> toOpt = repo.findById(toId);
+
+        if (fromOpt.isEmpty() || toOpt.isEmpty()) return false;
+
+        Account from = fromOpt.get();
+        Account to = toOpt.get();
+
+        if (from.getBalance() < amount) return false;
+
+        from.debit(amount);
+        to.credit(amount);
+
+        repo.update(from);
+        repo.update(to);
+        notifier.send("Transferred " + amount + " from " + fromId + " to " + toId);
+        return true;
+    }
+}
+
+public class AccountServiceTest {
+
+    private AccountRepository repo;
+    private NotificationService notifier;
+    private AccountService service;
+
+    @BeforeEach
+    void setup() {
+        repo = mock(AccountRepository.class);
+        notifier = mock(NotificationService.class);
+        service = new AccountService(repo, notifier);
+    }
+
+    @Test
+    void testSuccessfulTransfer() {
+        Account from = new Account(1, 1000);
+        Account to = new Account(2, 500);
+
+        when(repo.findById(1)).thenReturn(Optional.of(from));
+        when(repo.findById(2)).thenReturn(Optional.of(to));
+
+        boolean result = service.transfer(1, 2, 200);
+
+        assertTrue(result);
+        assertEquals(800, from.getBalance());
+        assertEquals(700, to.getBalance());
+
+        verify(repo, times(2)).update(any(Account.class));
+        verify(notifier).send("Transferred 200.0 from 1 to 2");
+    }
+
+    @Test
+    void testFailedTransferInsufficientBalance() {
+        Account from = new Account(1, 100);
+        Account to = new Account(2, 500);
+
+        when(repo.findById(1)).thenReturn(Optional.of(from));
+        when(repo.findById(2)).thenReturn(Optional.of(to));
+
+        boolean result = service.transfer(1, 2, 300);
+
+        assertFalse(result);
+        verify(repo, never()).update(any());
+        verify(notifier, never()).send(any());
+    }
+
+    @Test
+    void testFailedTransferWhenAccountMissing() {
+        when(repo.findById(1)).thenReturn(Optional.empty());
+        when(repo.findById(2)).thenReturn(Optional.of(new Account(2, 500)));
+
+        boolean result = service.transfer(1, 2, 200);
+
+        assertFalse(result);
+        verify(repo, never()).update(any());
+        verify(notifier, never()).send(any());
+    }
+}
+
+/*
+Expected Output:
+testSuccessfulTransfer:
+  - Updates balances of both accounts
+  - Sends correct notification
+testFailedTransferInsufficientBalance:
+  - No update or notification
+testFailedTransferWhenAccountMissing:
+  - No update or notification
+*/
