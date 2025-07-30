@@ -37,5 +37,5 @@ public class OrderServiceTest {
 
 /*
 Expected Output:
-✅ Test passes because processPayment("ORD123") is called exactly once.
+Test passes because processPayment("ORD123") is called exactly once.
 */
