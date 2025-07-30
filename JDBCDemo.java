@@ -2,10 +2,6 @@ package jdbc;
 
 import java.sql.*;
 
-/*
- * Java 17 + MySQL 8.0.42 + Maven
- * This program connects to MySQL "testdb" and queries the "Student" table.
- */
 
 public class JDBCDemo {
 
@@ -49,7 +45,7 @@ public class JDBCDemo {
 /*
 Expected Output:
 
-ID: 1, Name: Alice, Age: 21, Course: Java, Marks: 88.5
-ID: 2, Name: Bob, Age: 22, Course: Python, Marks: 75.0
-ID: 3, Name: Charlie, Age: 20, Course: C++, Marks: 92.3
+ID: 1, Name: Madhu, Age: 21, Course: Java, Marks: 88.5
+ID: 2, Name: Babu, Age: 22, Course: Python, Marks: 75.0
+ID: 3, Name: Shiv, Age: 20, Course: C++, Marks: 92.3
 */
