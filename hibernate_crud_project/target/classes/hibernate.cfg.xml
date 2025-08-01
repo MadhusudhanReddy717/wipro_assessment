@@ -6,16 +6,14 @@
 <hibernate-configuration>
     <session-factory>
 
-        <!-- JDBC connection settings -->
+
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/testdb</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">@Madhu717</property>
 
-        <!-- SQL dialect -->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
 
-        <!-- Echo all executed SQL to stdout -->
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
 
