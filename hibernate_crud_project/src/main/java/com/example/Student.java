@@ -24,7 +24,7 @@ public class Student {
         this.marks = marks;
     }
 
-    // Getters and setters
+
     public int getId() {
         return id;
     }
