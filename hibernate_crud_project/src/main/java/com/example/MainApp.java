@@ -12,7 +12,7 @@ public class MainApp {
         Scanner scanner = new Scanner(System.in);
         int option;
 
-        System.out.println("-------------------- Hibernate Student CRUD --------------------");
+        System.out.println("Hibernate Student CRUD ");
 
         do {
             System.out.println("\n1. Add Student");
@@ -57,7 +57,7 @@ public class MainApp {
         System.out.print("Enter ID: ");
         int id = scanner.nextInt();
 
-        scanner.nextLine(); // consume newline
+        scanner.nextLine(); 
 
         System.out.print("Enter Name: ");
         String name = scanner.nextLine();
@@ -65,7 +65,7 @@ public class MainApp {
         System.out.print("Enter Age: ");
         int age = scanner.nextInt();
 
-        scanner.nextLine(); // consume newline
+        scanner.nextLine(); 
 
         System.out.print("Enter Course: ");
         String course = scanner.nextLine();
@@ -106,7 +106,7 @@ public class MainApp {
         if (student == null) {
             System.out.println("Student not found!");
         } else {
-            scanner.nextLine(); // consume newline
+            scanner.nextLine(); 
 
             System.out.print("Enter New Name: ");
             student.setName(scanner.nextLine());
@@ -138,11 +138,11 @@ public class MainApp {
 
         Student student = session.get(Student.class, id);
         if (student == null) {
-            System.out.println("Student not found!");
+            System.out.println("Student not found");
         } else {
             session.delete(student);
             tx.commit();
-            System.out.println("Student deleted successfully!");
+            System.out.println("Student deleted successfully");
         }
         session.close();
     }
