@@ -41,6 +41,8 @@ public class Jdbcconnect {
     }
 }
 /*
-Expected Output:
-
+Output:
+ID: 1, Name: Madhu, Age: 21, Course: Java, Marks: 88.5
+ID: 2, Name: Babu, Age: 22, Course: Python, Marks: 75.0
+ID: 3, Name: Shiv, Age: 20, Course: C++, Marks: 92.3
 */
