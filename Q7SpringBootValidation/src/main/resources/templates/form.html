@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Enrollment Form</title>
+</head>
+<body>
+    <h2>Enrollment Form</h2>
+    <form th:action="@{/form}" th:object="${student}" method="post">
+        First Name: <input type="text" th:field="*{firstName}"/>
+        <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+
+        <br/>Last Name: <input type="text" th:field="*{lastName}"/>
+        <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+
+        <br/>Sex: 
+        <input type="radio" th:field="*{gender}" value="Male"/>Male
+        <input type="radio" th:field="*{gender}" value="Female"/>Female
+        <div th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></div>
+
+        <br/>Date of birth: <input type="text" th:field="*{dob}"/>
+        <div th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"></div>
+
+        <br/>Email: <input type="email" th:field="*{email}"/>
+        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+
+        <br/>Section:
+        <input type="radio" th:field="*{section}" value="Graduate"/>Graduate
+        <input type="radio" th:field="*{section}" value="Post Graduate"/>Post Graduate
+        <input type="radio" th:field="*{section}" value="Research"/>Research
+        <div th:if="${#fields.hasErrors('section')}" th:errors="*{section}"></div>
+
+        <br/>Country:
+        <select th:field="*{country}">
+            <option value="">Select</option>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+        </select>
+        <div th:if="${#fields.hasErrors('country')}" th:errors="*{country}"></div>
+
+        <br/>First Attempt? <input type="checkbox" th:field="*{firstAttempt}"/>
+
+        <br/>Subjects:
+        <select multiple th:field="*{subjects}">
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Life Science">Life Science</option>
+            <option value="Political Science">Political Science</option>
+        </select>
+        <div th:if="${#fields.hasErrors('subjects')}" th:errors="*{subjects}"></div>
+
+        <br/><button type="submit">Register</button>
+    </form>
+</body>
+</html>

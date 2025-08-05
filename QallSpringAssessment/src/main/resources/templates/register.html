@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring MVC Form Demo - Registration</title>
+</head>
+<body>
+<h2>Spring MVC Form Demo - Registration</h2>
+<form action="/register" method="post">
+    <label>User Name:</label><br>
+    <input type="text" name="username"/><br><br>
+
+    <label>Password:</label><br>
+    <input type="password" name="password"/><br><br>
+
+    <label>E-mail:</label><br>
+    <input type="email" name="email"/><br><br>
+
+    <label>Birthday (mm/dd/yyyy):</label><br>
+    <input type="text" name="birthday"/><br><br>
+
+    <label>Profession:</label><br>
+    <select name="profession">
+        <option>Developer</option>
+        <option>Tester</option>
+        <option>Architect</option>
+    </select><br><br>
+
+    <button type="submit">Register</button>
+</form>
+</body>
+</html>
