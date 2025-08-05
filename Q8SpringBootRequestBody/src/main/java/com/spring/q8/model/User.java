@@ -5,7 +5,7 @@ public class User {
     private String lastName;
     private int age;
 
-    // Constructors
+    
     public User() {}
 
     public User(String firstName, String lastName, int age) {
@@ -14,7 +14,7 @@ public class User {
         this.age = age;
     }
 
-    // Getters & Setters
+    
     public String getFirstName() {
         return firstName;
     }
