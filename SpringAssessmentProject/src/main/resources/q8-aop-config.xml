@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="shoppingService" class="com.example.springassessmentproject.q8.ShoppingService" />
+    <bean id="loggingAspect" class="com.example.springassessmentproject.q8.LoggingAspect" />
+
+    <aop:config>
+        <aop:aspect id="logAspect" ref="loggingAspect">
+            <aop:pointcut id="businessMethods" expression="execution(* com.example.springassessmentproject.q8.ShoppingService.*(..))" />
+            <aop:before method="logBefore" pointcut-ref="businessMethods"/>
+            <aop:after-returning method="logAfterReturning" pointcut-ref="businessMethods"/>
+            <aop:after-throwing method="logAfterThrowing" pointcut-ref="businessMethods" throwing="error"/>
+            <aop:around method="logAround" pointcut-ref="businessMethods"/>
+        </aop:aspect>
+    </aop:config>
+</beans>

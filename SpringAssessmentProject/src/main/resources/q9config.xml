@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="product" class="com.example.springassessmentproject.q9.Product">
+        <constructor-arg value="1001"/>
+        <constructor-arg value="Laptop"/>
+        <constructor-arg value="65000.0"/>
+    </bean>
+
+    <bean id="purchase" class="com.example.springassessmentproject.q9.Purchase">
+        <constructor-arg value="9001"/>
+        <constructor-arg value="2025-08-06"/>
+        <constructor-arg ref="product"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Bank Bean -->
+    <bean id="bankBean" class="com.example.springassessmentproject.q2.Bank">
+        <constructor-arg value="101" />
+        <constructor-arg value="State Bank of India" />
+    </bean>
+
+    <!-- Account Bean -->
+    <bean id="accountBean" class="com.example.springassessmentproject.q2.Account">
+        <constructor-arg value="10001" />
+        <constructor-arg value="Madhusudhan Reddy" />
+        <constructor-arg value="75000.50" />
+        <constructor-arg ref="bankBean" />
+    </bean>
+
+</beans>
