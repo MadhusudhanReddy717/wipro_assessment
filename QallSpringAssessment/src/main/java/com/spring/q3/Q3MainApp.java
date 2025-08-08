@@ -12,7 +12,6 @@ public class Q3MainApp {
     public static void main(String[] args) {
         SpringApplication.run(Q3MainApp.class, args);
 
-        // Open browser automatically
         try {
             String url = "http://localhost:8081";
             if (Desktop.isDesktopSupported()) {
@@ -30,3 +29,4 @@ public class Q3MainApp {
         }
     }
 }
+
