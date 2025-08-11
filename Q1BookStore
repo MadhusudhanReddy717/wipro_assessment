@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>BookWorld - Your Online Bookstore</title>
+</head>
+<body>
+
+    <!-- Image moved to the top -->
+    <img src="file:///D:/FrontEndImages/book.jpg" alt="Bookstore Banner" width="100%" height="250">
+
+    <h1>Welcome to BookWorld</h1>
+    <p>
+        BookWorld is a premier online bookstore. There's a pendulum of a wide range of genres slinted to derive generous assessment, and secure shopping experience.
+    </p>
+
+    <h2>Book Categories</h2>
+    <table border="1" cellpadding="8" cellspacing="0">
+        <tr>
+            <th>Category</th>
+            <th>Number of Books</th>
+            <th>Top Author</th>
+        </tr>
+        <tr>
+            <td>Fiction</td>
+            <td align="center">2,345</td>
+            <td>J.K. Rowling</td>
+        </tr>
+        <tr>
+            <td>Non-Fiction</td>
+            <td align="center">1,789</td>
+            <td>Malcolm Gladwell</td>
+        </tr>
+        <tr>
+            <td>Children's</td>
+            <td align="center">1,234</td>
+            <td>Roald Dahl</td>
+        </tr>
+        <tr>
+            <td>Science</td>
+            <td align="center">980</td>
+            <td>Stephen Hawking</td>
+        </tr>
+    </table>
+
+    <table width="100%">
+        <tr>
+            <td valign="top" width="50%">
+                <h2>Best-Sellers</h2>
+                <ol>
+                    <li>The Great Gatsby by F. Scott Fitzgerald</li>
+                    <li>To Kill a Mockingbird by Harper Lee</li>
+                    <li>1984 by George Orwell</li>
+                    <li>The Catcher in the Rye by J.D. Salinger</li>
+                    <li>The Hobbit by J.R.R. Tolkien</li>
+                </ol>
+            </td>
+            <td valign="top" width="50%">
+                <h2>Upcoming Releases</h2>
+                <ul>
+                    <li>The Midnight Library</li>
+                    <li>Project Hall Mary</li>
+                    <li>The Four Winds</li>
+                    <li>Kiara and the Sun</li>
+                    <li>The Lincoln Highway</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+    <h2>Book Preview</h2>
+    <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/vvKUuFk_uWI?si=gXpoK78I1ia2PFOx" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin" 
+        allowfullscreen>
+    </iframe>
+
+    <h2>Newsletter Signup</h2>
+    <p>Subscribe to our bookworld newsletter.</p>
+    <form>
+        Name<br>
+        <input type="text" name="name" required><br>
+        Email<br>
+        <input type="email" name="email" required><br>
+        Favorite Genre<br>
+        <select name="genre">
+            <option>Fiction</option>
+            <option>Non-Fiction</option>
+            <option>Children's</option>
+            <option>Science</option>
+        </select><br>
+        Comments<br>
+        <textarea name="comments" rows="3" cols="30"></textarea><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
