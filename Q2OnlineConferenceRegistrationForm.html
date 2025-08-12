@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Conferences Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        form {
+            border: 2px solid #333;
+            padding: 20px;
+            border-radius: 8px;
+            width: 500px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .interests-container {
+            display: flex;
+            gap: 20px;
+        }
+        table {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>ONLINE CONFERENCES REGISTRATION FORM</h1>
+
+    <form action="submit_registration.php" method="post" enctype="multipart/form-data">
+        
+        <h2>Personal Information</h2>
+        <table cellpadding="5" cellspacing="0">
+            <tr>
+                <td><b>Full Name *:</b></td>
+                <td><input type="text" name="fullName" style="width: 100%;"></td>
+            </tr>
+            <tr>
+                <td><b>Email Address *:</b></td>
+                <td>
+                    <input type="text" name="email" style="width: 100%;">
+                    <br><small>Format: user@example.com</small>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Gender *:</b></td>
+                <td>
+                    <input type="radio" name="gender" value="male"> Male
+                    <input type="radio" name="gender" value="female"> Female
+                    <input type="radio" name="gender" value="other"> Other
+                </td>
+            </tr>
+            <tr>
+                <td><b>Country *:</b></td>
+                <td>
+                    <select name="country" style="width: 100%;">
+                        <option value="">Select Country</option>
+                        <option value="India">INDIA</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="canada">Canada</option>
+                        <option value="australia">Australia</option>
+                        <option value="germany">Germany</option>
+                        <option value="france">France</option>
+                        <option value="japan">Japan</option>
+                        <option value="us">US</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Profile Photo Upload:</b></td>
+                <td><input type="file" name="profilePhoto"></td>
+            </tr>
+        </table>
+
+        <h2>Account Preferences</h2>
+        <table cellpadding="5" cellspacing="0">
+            <tr>
+                <td><b>Username *:</b></td>
+                <td><input type="text" name="username" style="width: 100%;"></td>
+            </tr>
+            <tr>
+                <td><b>Password *:</b></td>
+                <td><input type="password" name="password" style="width: 100%;"></td>
+            </tr>
+            <tr>
+                <td><b>Confirm Password *:</b></td>
+                <td><input type="password" name="confirmPassword" style="width: 100%;"></td>
+            </tr>
+            <tr>
+                <td><b>Interests:</b></td>
+                <td>
+                    <div class="interests-container">
+                        <label><input type="checkbox" name="interests[]" value="web-development"> Web Development</label>
+                        <label><input type="checkbox" name="interests[]" value="ai cloud"> AI Cloud</label>
+                        
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Preferred Contact Method *:</b></td>
+                <td>
+                    <input type="radio" name="contactMethod" value="email"> Email
+                    <input type="radio" name="contactMethod" value="phone"> Phone
+                    <input type="radio" name="contactMethod" value="sms"> SMS
+                </td>
+            </tr>
+            <tr>
+                <td><b>Special Requirements / Comments:</b></td>
+                <td><textarea name="comments" rows="4" style="width: 100%;"></textarea></td>
+            </tr>
+        </table>
+
+        <h2>Payment Details</h2>
+        <table cellpadding="5" cellspacing="0">
+            <tr>
+                <td><b>Payment Method *:</b></td>
+                <td>
+                    <select name="paymentMethod" style="width: 100%;">
+                        <option value="">Select Payment Method</option>
+                        <option value="credit-card">Credit Card</option>
+                        <option value="debit-card">Debit Card</option>
+                        <option value="paypal">PayPal</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Card Number *:</b></td>
+                <td><input type="text" name="cardNumber" style="width: 100%;"></td>
+            </tr>
+            <tr>
+                <td><b>Expiry Date *:</b></td>
+                <td>
+                    <select name="expiryMonth">
+                        <option value="">Month</option>
+                        <option>01</option>
+                        <option>02</option>
+                        <option>03</option>
+                        <option>04</option>
+                        <option>05</option>
+                        <option>06</option>
+                        <option>07</option>
+                        <option>08</option>
+                        <option>09</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                    </select>
+                    <select name="expiryYear">
+                        <option value="">Year</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                        <option>2026</option>
+                        <option>2027</option>
+                        <option>2028</option>
+                        <option>2029</option>
+                        <option>2030</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><b>CVV *:</b></td>
+                <td><input type="text" name="cvv" maxlength="3" style="width: 50px;"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="checkbox" name="terms" value="agreed"> I agree to the Terms & Conditions *
+                </td>
+            </tr>
+        </table>
+
+        <br>
+        <div style="text-align: center;">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </div>
+    </form>
+</body>
+</html>

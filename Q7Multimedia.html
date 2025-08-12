@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Multimedia Lab</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            max-width: 560px;
+            border: 5px solid black;
+        }
+        video, audio, embed, iframe, svg {
+            display: block;
+            margin: 10px 0;
+            width: 100%;
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>HTML5 Multimedia Lab</h2>
+        <p>This page demonstrates video, audio, embed (PDF), iframe, and inline SVG. Below is a visual preview.</p>
+
+        <!-- YouTube Video -->
+        <h3>Video (YouTube)</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/vvKUuFk_uWI?si=dF2VR8HvT74QuGj2" 
+            title="YouTube video player" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+        </iframe>
+
+        <!-- Audio -->
+        <h3>Audio (song.mp3)</h3>
+        <audio controls loop>
+            <source src="D:/song.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <!-- Embed PDF -->
+        <h3>Embed (HTMLCSSJS_Labs.pdf)</h3>
+        <embed src="file:///C:/Users/lenovo/OneDrive/OneDrive%20-%20K%20L%20University/Desktop/HTMLCSSJS_Labs.pdf" type="application/pdf" width="100%" height="200px">
+        <p>If not visible, <a href="file:///C:/Users/lenovo/OneDrive/OneDrive%20-%20K%20L%20University/Desktop/HTMLCSSJS_Labs.pdf" download>download HTMLCSSJS_Labs.pdf</a></p>
+
+        <!-- Local demo.html -->
+        <h3>Iframe (demo.html)</h3>
+        <iframe src="file:///D:/FRONT%20END/demo.html" width="100%" height="150px"></iframe>
+
+        <!-- Inline SVG -->
+        <h3>Inline SVG</h3>
+        <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="0,0 100,50 0,100" fill="red" />
+        </svg>
+    </div>
+</body>
+</html>

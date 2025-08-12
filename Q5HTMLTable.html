@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Purchase Orders</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+    .container {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+    h2 {
+        margin-bottom: 20px;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        background-color: white;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 10px 15px;
+        text-align: left;
+    }
+    th {
+        background-color: white;
+        font-weight: bold;
+    }
+    tr:nth-child(even) {
+        background-color: #fafafa;
+    }
+    tfoot td {
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Purchase Orders</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Order #</th>
+                <th>Date</th>
+                <th>Customer</th>
+                <th>Items</th>
+                <th>Qty</th>
+                <th>Unit Price</th>
+                <th>Line Total</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2001</td>
+                <td>2025-07-29</td>
+                <td>Asha Sharma</td>
+                <td>Basmati Rice (5 kg)</td>
+                <td>1</td>
+                <td>$24.00</td>
+                <td>$24.00</td>
+                <td>Shipped</td>
+            </tr>
+            <tr>
+                <td>2002</td>
+                <td>2025-07-30</td>
+                <td>Raman &amp; Co.</td>
+                <td>Brown Bread</td>
+                <td>3</td>
+                <td>$2.25</td>
+                <td>$6.75</td>
+                <td>Processing</td>
+            </tr>
+            <tr>
+                <td>2003</td>
+                <td>2025-08-01</td>
+                <td>Priya Patel</td>
+                <td>Assorted Snacks Box</td>
+                <td>1</td>
+                <td>$18.50</td>
+                <td>$18.50</td>
+                <td>Delivered</td>
+            </tr>
+            <tr>
+                <td>2004</td>
+                <td>2025-08-02</td>
+                <td>Vijay Enterprises</td>
+                <td>Sugar (2 kg)</td>
+                <td>2</td>
+                <td>$1.80</td>
+                <td>$3.60</td>
+                <td>Cancelled</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="6" style="text-align: right;">Grand Total</td>
+                <td>$59.85</td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+</body>
+</html>

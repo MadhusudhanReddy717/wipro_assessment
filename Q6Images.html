@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Image Lab — Gallery</title>
+  <style>
+    :root { --note-bg: #fff3cd; --page-bg: #fafafa }
+    body { font-family: Arial, Helvetica, sans-serif; background: var(--page-bg); margin: 0; color: #222 }
+    header { background: #2e584f; color: white; padding: 20px; }
+    header h1 { margin: 0; font-size: 28px }
+    .wrap { max-width: 980px; margin: 20px auto; padding: 0 16px }
+    .grid { display: grid; grid-template-columns: 1fr 300px; gap: 20px; align-items: start }
+    .gallery { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      grid-template-rows: auto auto; 
+      gap: 16px;
+      align-items: start;
+    }
+    figure { 
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    figure img { 
+      width: 100%; 
+      height: 200px; 
+      object-fit: cover; 
+      display: block; 
+      border: 1px solid #ccc; 
+      padding: 4px; 
+      background: white;
+      flex-grow: 1;
+    }
+    figure svg {
+      width: 100%;
+      height: 200px;
+      border: 1px solid #ccc;
+      padding: 4px;
+      background: white;
+      flex-grow: 1;
+    }
+    figcaption { 
+      font-size: 14px; 
+      color: #333; 
+      margin-top: 6px;
+      padding: 8px 0;
+      min-height: 40px;
+    }
+    aside {
+      width: 100%;
+      max-width: 300px;
+    }
+    .notes { background: var(--note-bg); border: 1px solid #ffebb8; padding: 12px; border-radius: 4px }
+    .last-img { margin-top: 20px }
+    .last-img img { 
+      width: 100%; 
+      max-width: 280px; 
+      height: auto; 
+      border: 1px solid #ccc; 
+      padding: 4px; 
+      background: white;
+    }
+    .truck-svg { width: 100%; max-width: 160px; transform: scaleX(-1); }
+    .submit-section { text-align: left; margin-top: 20px; }
+    .submit-section button {
+      background: #2e584f;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .submit-section button:hover {
+      background: #24463f;
+    }
+    
+    /* Ensure proper grid ordering */
+    .gallery figure:nth-child(1) { grid-column: 1; grid-row: 1; }
+    .gallery figure:nth-child(2) { grid-column: 2; grid-row: 1; }
+    .gallery figure:nth-child(3) { grid-column: 1; grid-row: 2; }
+    .gallery figure:nth-child(4) { grid-column: 2; grid-row: 2; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Image Lab — Gallery</h1>
+    <p>Practice with &lt;img&gt;, srcset, &lt;picture&gt;, SVG, and accessibility</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="grid">
+    <main>
+      <h2>Responsive Image Gallery</h2>
+      <div class="gallery" role="list">
+        <figure role="listitem">
+          <img src="Ricebag.jpg" alt="Sack of basmati rice" loading="lazy">
+          <figcaption>Basmati rice — 5 kg bag.</figcaption>
+        </figure>
+        <figure role="listitem">
+          <picture>
+            <source srcset="snackbox.webp" type="image/webp">
+            <source srcset="snackbox.jpg" type="image/jpg">
+            <img src="snackbox.jpeg" alt="Assorted snacks box" loading="lazy">
+          </picture>
+          <figcaption>Assorted Snacks Box<br><small>(WebP served when supported).</small></figcaption>
+        </figure>
+        <figure role="listitem">
+          <svg class="truck-svg" viewBox="0 0 64 48" role="img" aria-labelledby="truckTitle truckDesc" xmlns="http://www.w3.org/2000/svg">
+            <title id="truckTitle">Delivery truck</title>
+            <desc id="truckDesc">Illustration of a delivery truck</desc>
+            <rect x="0" y="12" width="40" height="22" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+            <rect x="40" y="6" width="20" height="28" fill="#2aa6a0" stroke="#333" stroke-width="1.5"/>
+            <circle cx="18" cy="36" r="4" fill="#333"/>
+            <circle cx="46" cy="36" r="4" fill="#333"/>
+          </svg>
+          <figcaption>Delivery truck (SVG inline with accessible title/desc).</figcaption>
+        </figure>
+        <figure role="listitem">
+          <img src="dec.jpg" alt="" aria-hidden="true" loading="lazy">
+          <figcaption>Decorative divider <span style="color: #888">(not read by screen readers)</span></figcaption>
+        </figure>
+      </div>
+    </main>
+    <aside>
+      <div class="notes">
+        <h3>Notes</h3>
+        <p>Use <code>srcset</code> and <code>&lt;picture&gt;</code> to reduce bandwidth and serve modern formats. Add <code>loading="lazy"</code> to defer off-screen images.</p>
+      </div>
+      <div class="last-img">
+        <img src="map-320.jpg" alt="Store plan with rice and snacks aisles" usemap="#aisles" loading="lazy">
+        <map name="aisles">
+          <area shape="rect" coords="5,5,140,110" href="#rice" alt="Rice aisle">
+          <area shape="rect" coords="145,5,275,110" href="#snacks" alt="Snacks aisle">
+        </map>
+        <figcaption>Click a section to navigate to that aisle (image map)</figcaption>
+      </div>
+    </aside>
+  </div>
+
+  <div class="submit-section">
+    <h3>Submit Lab</h3>
+    <button type="submit">Submit Lab</button>
+  </div>
+</div>
+
+</body>
+</html>

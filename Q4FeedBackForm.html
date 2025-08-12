@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Feedback Survey</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        header {
+            background-color: #0074b7;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav {
+            background-color: #005a8c;
+            text-align: center;
+            padding: 8px 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px;
+            transform: translateX(-5%);
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            max-width: 500px;
+            flex: 2;
+        }
+        aside {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            width: 220px;
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+            box-sizing: border-box;
+        }
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 5px;
+        }
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+        }
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+        .buttons {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .buttons input {
+            width: auto;
+            padding: 8px 16px;
+        }
+        footer {
+            background-color: white;
+            color: black;
+            text-align: center;
+            padding: 8px;
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Website Feedback Survey</h1>
+    <p>We value your opinion. Please take a minute to share your thoughts.</p>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+</nav>
+
+<main>
+    <form action="#" method="post">
+        <section>
+            <h2>Personal Information</h2>
+            <label for="fullname">Full Name *</label>
+            <input type="text" id="fullname" name="fullname" required>
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required>
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" min="10" max="100">
+        </section>
+        <section>
+            <h2>Website Rating</h2>
+            <label for="design">Design (1-10):</label>
+            <input type="range" id="design" name="design" min="1" max="10">
+            <p>Content Quality:</p>
+            <div class="radio-group">
+                <label><input type="radio" name="quality" value="Excellent"> Excellent</label>
+                <label><input type="radio" name="quality" value="Good"> Good</label>
+                <label><input type="radio" name="quality" value="Average"> Average</label>
+                <label><input type="radio" name="quality" value="Poor"> Poor</label>
+            </div>
+            <label for="visited">Most visited page:</label>
+            <select id="visited" name="visited">
+                <option>Home</option>
+                <option>Blog</option>
+                <option>Products</option>
+                <option>Contact</option>
+            </select>
+        </section>
+        <section>
+            <h2>Suggestions</h2>
+            <textarea name="suggestions" rows="4" placeholder="Write your suggestions here..."></textarea>
+            <label>
+                <input type="checkbox" name="contact-ok">
+                I agree to be contacted regarding my feedback
+            </label>
+        </section>
+        <div class="buttons">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </div>
+    </form>
+
+    <aside>
+        <h3>Why Your Feedback Matters</h3>
+        <p>Your feedback helps us improve our website experience for everyone. Thank you!</p>
+    </aside>
+</main>
+
+<footer>
+    <p>© 2025 Website Survey</p>
+</footer>
+
+</body>
+</html>

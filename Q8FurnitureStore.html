@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniture Store Catalog</title>
+    <style>
+        body {
+            background-color: #f8f8f8;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-size: 2em;
+            margin-top: 20px;
+        }
+        p.tagline {
+            color: #555;
+            font-size: 1.2em;
+        }
+        .products {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px;
+            flex-wrap: wrap;
+        }
+        .product-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 250px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .product-card h3 {
+            margin: 10px 0 5px;
+        }
+        .product-card p {
+            margin: 5px 0;
+        }
+        .product-card button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .product-card button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Furniture Store Catalog</h1>
+    <p class="tagline">Find the best furniture for your home</p>
+
+    <div class="products">
+        <div class="product-card">
+            <img src="file:///D:/FRONT%20END/sofa.jpg" alt="Sofa">
+            <h3>Sofa</h3>
+            <p>Comfortable and stylish sofa</p>
+            <p><strong>$499</strong></p>
+            <button>Buy Now</button>
+        </div>
+
+        <div class="product-card" style="background-color: #fff7e6;">
+            <img src="file:///D:/FRONT%20END/Table.jpg" alt="Dining Table">
+            <h3 style="color: brown;">Dining Table</h3>
+            <p>Wooden dining table</p>
+            <p><strong>$299</strong></p>
+            <button>Buy Now</button>
+        </div>
+
+        <div class="product-card">
+            <img src="file:///D:/FRONT%20END/chair.jpg" alt="Chair">
+            <h3>Chair</h3>
+            <p>Modern chair for any room</p>
+            <p><strong>$149</strong></p>
+            <button style="background-color: black; color: white;">Buy Now</button>
+        </div>
+    </div>
+
+</body>
+</html>

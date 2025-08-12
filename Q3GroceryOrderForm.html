@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Grocery Order</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+        form {
+            background-color: #fff;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 500px;
+            margin: auto;
+        }
+        fieldset {
+            border: 1px solid #aaa;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        legend {
+            font-weight: bold;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        .buttons {
+            text-align: center;
+            margin-top: 15px;
+        }
+        input[type="submit"], input[type="reset"] {
+            width: auto;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align:center;">Online Grocery Order</h2>
+
+    <form action="order.php" method="POST">
+
+        <fieldset>
+            <legend>Customer Details</legend>
+
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="fullname" placeholder="Enter your full name" required autofocus>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="example@example.com" required>
+
+            <label for="mobile">Mobile Number:</label>
+            <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" placeholder="10-digit mobile number" required>
+
+            <label for="address">Delivery Address:</label>
+            <textarea id="address" name="address" rows="3" placeholder="Enter your delivery address" required></textarea>
+        </fieldset>
+
+        <fieldset>
+            <legend>Order Details</legend>
+
+            <label>Grocery Items:</label>
+            <input type="checkbox" name="items[]" value="Rice"> Rice
+            <input type="checkbox" name="items[]" value="Milk"> Milk
+            <input type="checkbox" name="items[]" value="Bread"> Bread
+            <input type="checkbox" name="items[]" value="Eggs"> Eggs
+            <input type="checkbox" name="items[]" value="Sugar"> Sugar
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="10" required>
+
+            <label for="date">Delivery Date:</label>
+            <input type="date" id="date" name="delivery_date" required>
+
+            <label for="time">Preferred Delivery Time:</label>
+            <input type="time" id="time" name="delivery_time">
+
+            <label>Payment Method:</label>
+            <input type="radio" name="payment" value="Cash on Delivery" required> Cash on Delivery
+            <input type="radio" name="payment" value="UPI"> UPI
+            <input type="radio" name="payment" value="Card"> Card
+        </fieldset>
+
+        <label for="instructions">Special Instructions:</label>
+        <textarea id="instructions" name="instructions" rows="3" placeholder="Optional"></textarea>
+
+        <label>
+            <input type="checkbox" name="confirm" required> I confirm my order
+        </label>
+
+        <div class="buttons">
+            <input type="submit" value="Submit Order">
+            <input type="reset" value="Reset Form">
+        </div>
+
+    </form>
+
+</body>
+</html>
