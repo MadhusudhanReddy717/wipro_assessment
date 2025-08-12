@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Market - Bootstrap Webpage</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        
+        .navbar {
+            background-color: #343a40 !important;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .company-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 2px solid #f0f0f0;
+            padding: 8px;
+        }
+        
+        .company-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .stock-item {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+        }
+        
+        .stock-item:last-child {
+            border-bottom: none;
+        }
+        
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        
+        .percentage-change {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .stock-symbol {
+            font-weight: bold;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="#">Share Market</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Market Trends</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Top Gainers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Top Losers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row mb-4">
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Top Gainer</h5>
+                        <div class="company-logo mx-auto mb-3">
+                            <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/9.0.0/apple.svg" alt="Apple Logo">
+                        </div>
+                        <h4 class="card-text fw-bold">AAPL</h4>
+                        <p class="card-text fs-5">$150.00</p>
+                        <p class="card-text percentage-change text-success">+2.15%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Top Loser</h5>
+                        <div class="company-logo mx-auto mb-3">
+                            <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/9.0.0/google.svg" alt="Google Logo">
+                        </div>
+                        <h4 class="card-text fw-bold">GOOGL</h4>
+                        <p class="card-text fs-5">$2,800.00</p>
+                        <p class="card-text percentage-change text-danger">-1.05%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Most Active</h5>
+                        <div class="company-logo mx-auto mb-3">
+                            <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/9.0.0/amazon.svg" alt="Amazon Logo">
+                        </div>
+                        <h4 class="card-text fw-bold">AMZN</h4>
+                        <p class="card-text fs-6 text-muted">Volume Traded</p>
+                        <p class="card-text fs-5 fw-bold">5,000,000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold mb-4">Trending Stocks</h5>
+                        
+                        <div class="stock-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="stock-symbol">AAPL</span>
+                                <span class="text-success percentage-change">+2.15%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stock-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="stock-symbol">MSFT</span>
+                                <span class="text-success percentage-change">+1.25%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stock-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="stock-symbol">TSLA</span>
+                                <span class="text-danger percentage-change">-0.75%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stock-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="stock-symbol">FB</span>
+                                <span class="text-success percentage-change">+0.80%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold mb-4">Market Summary</h5>
+                        <p class="card-text">
+                            The share market has been performing positively, with major indices showing an upward trend. 
+                            Investors are optimistic about the economic recovery and corporate earnings.
+                        </p>
+                        <p class="card-text">
+                            Technology stocks continue to lead the gains, while energy and financial sectors show mixed results. 
+                            Market volatility remains moderate as traders await upcoming economic data releases.
+                        </p>
+                        <p class="card-text">
+                            <small class="text-muted">Last updated: Today, 3:30 PM EST</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">Data for educational purposes only — Share Market 2025</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
