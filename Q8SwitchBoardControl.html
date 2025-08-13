@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Switchboard Control</title>
+</head>
+<body>
+
+<pre id="output"></pre>
+
+<script>
+    const buildingName = "Sunrise Apartments";
+    let deviceStatus = "OFF";
+    let devices = ["Light", "Fan", "AC"];
+    var counter;
+    let outputText = "";
+
+    for (counter = 0; counter < devices.length; counter++) {
+        deviceStatus = (deviceStatus === "OFF") ? "ON" : "OFF";
+        outputText += `Checking Switch ${counter + 1}: ${devices[counter]} is ${deviceStatus}\n`;
+    }
+
+    outputText += `All switches checked for ${buildingName}.\n`;
+    outputText += `Outside loop: var counter is ${counter}\n`;
+
+    document.getElementById("output").textContent = outputText;
+
+    try {
+        buildingName = "Moonlight Villas";
+    } catch (err) {
+        console.error("Error when trying to change buildingName:", err.message);
+    }
+</script>
+
+</body>
+</html>

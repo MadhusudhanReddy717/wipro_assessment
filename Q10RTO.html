@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RTO Vehicle Registration</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-3">
+
+<div class="accordion" id="registrationAccordion">
+  <!-- Section 1: Owner -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button">
+        1 Owner
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show">
+      <div class="accordion-body">
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" placeholder="e.g. Priya Natarajan">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Date of Birth</label>
+            <input type="date" class="form-control">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" placeholder="name@example.com">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Mobile (India)</label>
+            <input type="tel" class="form-control" placeholder="+91 98XXXXXXXX">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label">PAN</label>
+            <input type="text" class="form-control" placeholder="ABCDE1234F">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Driving License No.</label>
+            <input type="text" class="form-control" placeholder="Format: State(2) + RTO(2) + 11 digits">
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Aadhaar No.</label>
+          <input type="text" class="form-control" placeholder="1334 5679 9012">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2: Address -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button" type="button">
+        2 Address
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse show">
+      <div class="accordion-body">
+        <div class="mb-3">
+          <label class="form-label">Address Line 1</label>
+          <input type="text" class="form-control" placeholder="e.g. TN10 AB 12">
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Vehicle Class</label>
+            <select class="form-select">
+              <option>Choose...</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Fuel Type</label>
+            <select class="form-select">
+              <option>Choose...</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Make</label>
+            <input type="text" class="form-control" placeholder="e.g. Maruti Suzuki">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Engine No.</label>
+            <input type="text" class="form-control" placeholder="Alphanumeric, 6-12">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Year of Manufacture</label>
+            <input type="text" class="form-control" placeholder="2024">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Purchase Date</label>
+            <input type="date" class="form-control">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3: Compliance & Insurance -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button" type="button">
+        3 Compliance & Insurance
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse show">
+      <div class="accordion-body">
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Emission Norm</label>
+            <select class="form-select">
+              <option>Choose...</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Insurance Policy No.</label>
+            <input type="text" class="form-control" placeholder="e.g. ICICI-ABC01234">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Insurer</label>
+            <input type="text" class="form-control" placeholder="e.g. New India Assurance">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Insurance Expiry</label>
+            <input type="date" class="form-control">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 5: Finance -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFive">
+      <button class="accordion-button" type="button">
+        5 Finance (Hypothecation)
+      </button>
+    </h2>
+    <div id="collapseFive" class="accordion-collapse collapse show">
+      <div class="accordion-body">
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" id="hypothecationCheck">
+          <label class="form-check-label" for="hypothecationCheck">
+            Vehicle is under hypothecation / loan
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 6: Uploads -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingSix">
+      <button class="accordion-button" type="button">
+        6 Uploads
+      </button>
+    </h2>
+    <div id="collapseSix" class="accordion-collapse collapse show">
+      <div class="accordion-body">
+        <!-- Upload fields placeholder -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

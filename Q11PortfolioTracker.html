@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <pre id="output"></pre>
+
+    <script>
+        function shareMarketPortfolio() {
+            let portfolio = [];
+
+            function buyShare(company, quantity, price) {
+                portfolio.push({ company, quantity, price });
+                logOutput(`Bought ${quantity} shares of ${company} at ₹${price} each.`);
+            }
+
+            function sellShare(company, quantity) {
+                for (let i = 0; i < portfolio.length; i++) {
+                    if (portfolio[i].company === company) {
+                        if (portfolio[i].quantity >= quantity) {
+                            portfolio[i].quantity -= quantity;
+                            logOutput(`Sold ${quantity} shares of ${company}.`);
+                            if (portfolio[i].quantity === 0) {
+                                portfolio.splice(i, 1);
+                            }
+                        } else {
+                            logOutput(`Not enough shares to sell for ${company}.`);
+                        }
+                        return;
+                    }
+                }
+                logOutput(`No shares found for ${company}.`);
+            }
+
+            function totalValue() {
+                let total = portfolio.reduce((sum, share) => sum + share.quantity * share.price, 0);
+                logOutput(`Portfolio Value: ₹${total} .`);
+            }
+
+            return {
+                buyShare,
+                sellShare,
+                totalValue
+            };
+        }
+
+        function logOutput(message) {
+            document.getElementById("output").textContent += message + "\n";
+        }
+
+        const myPortfolio = shareMarketPortfolio();
+        myPortfolio.buyShare("ITC", 10, 3500);
+        myPortfolio.buyShare("TATA Motors", 5, 1500);
+        myPortfolio.sellShare("ITC", 5);
+        myPortfolio.totalValue();
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Income Tax Calculator (Multiple Callbacks)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .result p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Income Tax Calculator (Multiple Callbacks)</h2>
+
+<div id="result" class="result"></div>
+
+<script>
+    let taxRecords = [];
+
+    function calculateTax(name, pan, income, callback) {
+        let tax = 0;
+        if (income <= 250000) {
+            tax = 0;
+        } else if (income <= 500000) {
+            tax = (income - 250000) * 0.05;
+        } else if (income <= 1000000) {
+            tax = 250000 * 0.05 + (income - 500000) * 0.2;
+        } else {
+            tax = 250000 * 0.05 + 500000 * 0.2 + (income - 1000000) * 0.3;
+        }
+        callback(name, pan, income, tax);
+    }
+
+    function logToConsole(name, pan, income, tax) {
+        console.log(`Name: ${name}`);
+        console.log(`PAN: ${pan}`);
+        console.log(`Annual Income: ₹ ${income}`);
+        console.log(`Calculated Tax: ₹ ${tax}`);
+    }
+
+    function displayOnPage(name, pan, income, tax) {
+        document.getElementById("result").innerHTML = `
+            <p><b>Name:</b> ${name}</p>
+            <p><b>PAN:</b> ${pan}</p>
+            <p><b>Annual Income:</b> ₹ ${income}</p>
+            <p><b>Calculated Tax:</b> ₹ ${tax}</p>
+        `;
+    }
+
+    function saveToRecords(name, pan, income, tax) {
+        taxRecords.push({ name, pan, income, tax });
+        console.log("Tax Records JSON Array:", JSON.stringify(taxRecords, null, 2));
+    }
+
+    function processTax(name, pan, income) {
+        calculateTax(name, pan, income, function(n, p, i, t) {
+            logToConsole(n, p, i, t);
+            displayOnPage(n, p, i, t);
+            saveToRecords(n, p, i, t);
+        });
+    }
+
+   
+    processTax("Madhu", "FQTPR0581P", 850000);
+</script>
+
+</body>
+</html>

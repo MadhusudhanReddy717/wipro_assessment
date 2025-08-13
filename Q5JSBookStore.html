@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSON Book Store Management</title>
+</head>
+<body>
+    <h1>JSON - Book Store Management</h1>
+    
+    <button onclick="runBookStoreOperations()">Run Book Store Operations</button>
+    <button onclick="addCustomBook()">Add Custom Book</button>
+    
+    <div id="customBookForm"></div>
+    <div id="results"></div>
+
+    <script>
+        var books = [
+            {
+                title: "JavaScript Basics",
+                author: "Anu",
+                price: 450,
+                available: true
+            },
+            {
+                title: "HTML & CSS",
+                author: "Devi", 
+                price: 350,
+                available: false
+            }
+        ];
+        
+        function runBookStoreOperations() {
+            var output = '<h3>Book Store Management Operations:</h3>';
+            
+            output += '<h4>All Books:</h4>';
+            for (var book of books) {
+                output += 'Title: ' + book.title + ', Author: ' + book.author + 
+                         ', Price: ₹' + book.price + ', Available: ' + book.available + '<br>';
+            }
+            
+            output += '<br><h4>Available Books:</h4>';
+            for (var book of books) {
+                if (book.available === true) {
+                    output += 'Title: ' + book.title + ', Author: ' + book.author + 
+                             ', Price: ₹' + book.price + '<br>';
+                }
+            }
+            
+            var newBook = {
+                title: "Node.js Guide",
+                author: "Ravi",
+                price: 600,
+                available: true
+            };
+            books.push(newBook);
+            
+            output += '<br><h4>After Adding:</h4>';
+            var titles = [];
+            for (var book of books) {
+                titles.push(book.title);
+            }
+            output += titles.join(', ') + '<br>';
+            
+            for (var book of books) {
+                if (book.title === "JavaScript Basics") {
+                    book.price = 500;
+                    break;
+                }
+            }
+            
+            output += '<br><h4>After Price Update:</h4>';
+            for (var book of books) {
+                if (book.title === "JavaScript Basics") {
+                    output += book.title + ' - ₹' + book.price + '<br>';
+                    break;
+                }
+            }
+            
+            for (var i = 0; i < books.length; i++) {
+                if (books[i].title === "JavaScript Basics") {
+                    books.splice(i, 1);
+                    break;
+                }
+            }
+            
+            output += '<br><h4>After Deletion:</h4>';
+            var remainingTitles = [];
+            for (var book of books) {
+                remainingTitles.push(book.title);
+            }
+            output += remainingTitles.join(', ') + '<br>';
+            
+            output += '<br><h4>Final JSON Structure:</h4>';
+            output += '<pre>' + JSON.stringify(books, null, 2) + '</pre>';
+            
+            document.getElementById('results').innerHTML = output;
+        }
+        
+        function addCustomBook() {
+            var form = '<h4>Add Custom Book:</h4>';
+            form += '<p>Title: <input type="text" id="bookTitle" placeholder="Enter book title"></p>';
+            form += '<p>Author: <input type="text" id="bookAuthor" placeholder="Enter author name"></p>';
+            form += '<p>Price: <input type="number" id="bookPrice" placeholder="Enter price"></p>';
+            form += '<p>Available: <select id="bookAvailable"><option value="true">Yes</option><option value="false">No</option></select></p>';
+            form += '<button onclick="addBook()">Add Book</button> ';
+            form += '<button onclick="clearForm()">Clear</button>';
+            
+            document.getElementById('customBookForm').innerHTML = form;
+        }
+        
+        function addBook() {
+            var title = document.getElementById('bookTitle').value.trim();
+            var author = document.getElementById('bookAuthor').value.trim();
+            var price = parseFloat(document.getElementById('bookPrice').value);
+            var available = document.getElementById('bookAvailable').value === 'true';
+            
+            if (title === '' || author === '' || isNaN(price)) {
+                alert('Please fill all fields correctly');
+                return;
+            }
+            
+            var newBook = {
+                title: title,
+                author: author,
+                price: price,
+                available: available
+            };
+            
+            books.push(newBook);
+            alert('Book "' + title + '" added successfully!');
+            clearForm();
+            
+            var output = '<h4>Updated Book List:</h4>';
+            for (var book of books) {
+                output += 'Title: ' + book.title + ', Author: ' + book.author + 
+                         ', Price: ₹' + book.price + ', Available: ' + book.available + '<br>';
+            }
+            document.getElementById('results').innerHTML = output;
+        }
+        
+        function clearForm() {
+            document.getElementById('customBookForm').innerHTML = '';
+        }
+        
+        function resetBooks() {
+            books = [
+                {
+                    title: "JavaScript Basics",
+                    author: "Anu",
+                    price: 450,
+                    available: true
+                },
+                {
+                    title: "HTML & CSS",
+                    author: "Devi", 
+                    price: 350,
+                    available: false
+                }
+            ];
+            document.getElementById('results').innerHTML = '<p>Books reset to original state.</p>';
+        }
+    </script>
+</body>
+</html>

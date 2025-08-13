@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Game</title>
+</head>
+<body>
+    <h1>JavaScript Quiz Game</h1>
+    
+    <script>
+        alert("Welcome to the Quiz Game!");
+        
+        let userName = prompt("What is your name?");
+        
+        let isReady = confirm("Hello " + userName + "! Are you ready for the quiz?");
+        
+        if (isReady) {
+            let answer = prompt(
+                "Which car is known as the 'People's Car of India'?\n" +
+                "A) Maruti 800\n" +
+                "B) Tata Nano\n" +
+                "C) Hindustan Ambassador\n" +
+                "D) Mahindra Scorpio\n\n" +
+                "Enter your answer (A, B, C, or D):"
+            );
+            
+            if (answer === "B" || answer === "b") {
+                alert("Correct! Well done " + userName + "!");
+            } else {
+                alert("Wrong! The correct answer is B) Tata Nano");
+            }
+        } else {
+            alert("Maybe next time " + userName + "!");
+        }
+    </script>
+</body>
+</html>

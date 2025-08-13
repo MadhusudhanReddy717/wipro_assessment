@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Customers Management</title>
+</head>
+<body>
+    <h1>Bank Customers - Dynamic Array Management</h1>
+    
+    <p>Number of customers to register: <input type="number" id="customerCount" value="3"></p>
+    <button onclick="startRegistration()">Start Registration</button>
+    
+    <div id="registrationForm"></div>
+    <div id="results"></div>
+
+    <script>
+        var customers = [];
+        
+        function startRegistration() {
+            var count = parseInt(document.getElementById('customerCount').value);
+            
+            if (count <= 0 || isNaN(count)) {
+                alert('Please enter a valid number of customers');
+                return;
+            }
+            
+            var form = '<h3>Enter Customer Names:</h3>';
+            for (var i = 0; i < count; i++) {
+                form += '<p>Customer ' + (i + 1) + ': <input type="text" id="customer' + i + '" placeholder="Enter name"></p>';
+            }
+            form += '<button onclick="processCustomers()">Process Customers</button>';
+            
+            document.getElementById('registrationForm').innerHTML = form;
+            document.getElementById('results').innerHTML = '';
+        }
+        
+        function processCustomers() {
+            var count = parseInt(document.getElementById('customerCount').value);
+            customers = [];
+            
+            for (var i = 0; i < count; i++) {
+                var name = document.getElementById('customer' + i).value.trim();
+                if (name === '') {
+                    alert('Please enter all customer names');
+                    return;
+                }
+                customers.push(name);
+            }
+            
+            var output = '<h3>Bank Customer Management Operations:</h3>';
+            
+            output += '<p><strong>Original Customers:</strong> ' + customers.join(', ') + '</p>';
+            
+            output += '<p><strong>Customers using for...of:</strong><br>';
+            for (var customer of customers) {
+                output += customer + '<br>';
+            }
+            output += '</p>';
+            
+            output += '<p><strong>Customer IDs using for...in:</strong><br>';
+            for (var index in customers) {
+                output += index + '<br>';
+            }
+            output += '</p>';
+            
+            customers.push('Anita');
+            output += '<p><strong>After push(\'Anita\'):</strong> ' + customers.join(', ') + '</p>';
+            
+            var removed = customers.pop();
+            output += '<p><strong>After pop():</strong> ' + customers.join(', ') + '</p>';
+            
+            customers.splice(1, 0, 'Vikram');
+            output += '<p><strong>After insert \'Vikram\' at position 1:</strong> ' + customers.join(', ') + '</p>';
+            
+            var deleted = customers.splice(2, 1);
+            output += '<p><strong>After delete at position 2:</strong> ' + customers.join(', ') + '</p>';
+            
+            output += '<p><strong>Final Customers:</strong> ' + customers.join(', ') + '</p>';
+            
+            document.getElementById('results').innerHTML = output;
+        }
+    </script>
+</body>
+</html>

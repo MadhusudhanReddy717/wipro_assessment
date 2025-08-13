@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Equality & Inequality Checker</title>
+</head>
+<body>
+    <h1>Equality & Inequality Checker</h1>
+    
+    <p>First Value: <input type="text" id="value1"></p>
+    <p>Second Value: <input type="text" id="value2"></p>
+    <button onclick="compareValues()">Compare Values</button>
+    
+    <div id="results"></div>
+
+    <script>
+        function parseValue(input) {
+            if (input === 'null') return null;
+            if (input === 'undefined') return undefined;
+            if (input === 'true') return true;
+            if (input === 'false') return false;
+            
+            var num = Number(input);
+            if (!isNaN(num) && input.trim() !== '') {
+                return num;
+            }
+            
+            return input;
+        }
+        
+        function getDataType(value) {
+            if (value === null) return 'null';
+            if (value === undefined) return 'undefined';
+            return typeof value;
+        }
+        
+        function compareValues() {
+            var input1 = document.getElementById('value1').value;
+            var input2 = document.getElementById('value2').value;
+            
+            if (input1 === '' || input2 === '') {
+                document.getElementById('results').innerHTML = 'Please enter both values!';
+                return;
+            }
+            
+            var val1 = parseValue(input1);
+            var val2 = parseValue(input2);
+            
+            var type1 = getDataType(val1);
+            var type2 = getDataType(val2);
+            
+            var equality = val1 == val2;
+            var strictEquality = val1 === val2;
+            var inequality = val1 != val2;
+            var strictInequality = val1 !== val2;
+            
+            var results = '<h3>Results:</h3>';
+            results += '<p>First Value: ' + val1 + ' (' + type1 + ')</p>';
+            results += '<p>Second Value: ' + val2 + ' (' + type2 + ')</p>';
+            results += '<br>';
+            results += '<p>Using == : ' + equality + ' → ' + (equality ? 'Equality ignores type' : 'Values are not equal') + '</p>';
+            results += '<p>Using === : ' + strictEquality + ' → ' + (strictEquality ? 'Strict equality - same value and type' : 'Strict equality checks type too') + '</p>';
+            results += '<p>Using != : ' + inequality + ' → ' + (inequality ? 'Values considered different' : 'Values considered equal') + '</p>';
+            results += '<p>Using !== : ' + strictInequality + ' → ' + (strictInequality ? 'Strict inequality because types differ' : 'Same value and type') + '</p>';
+            results += '<br>';
+            results += '<h4>Type Conversion:</h4>';
+            results += '<p>String(' + val1 + ') = "' + String(val1) + '"</p>';
+            results += '<p>String(' + val2 + ') = "' + String(val2) + '"</p>';
+            results += '<p>Number(' + val1 + ') = ' + Number(val1) + '</p>';
+            results += '<p>Number(' + val2 + ') = ' + Number(val2) + '</p>';
+            
+            document.getElementById('results').innerHTML = results;
+        }
+    </script>
+</body>
+</html>

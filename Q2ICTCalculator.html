@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Income Tax Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        label { display: block; margin-top: 10px; }
+        input { padding: 5px; width: 250px; }
+        button { margin-top: 15px; padding: 8px 15px; }
+        .output { margin-top: 20px; padding: 10px; border: 1px solid #ccc; background: #f9f9f9; }
+    </style>
+</head>
+<body>
+
+<h2>Income Tax Calculator</h2>
+
+<label>Full Name:</label>
+<input type="text" id="fullName">
+
+<label>PAN Number (10 uppercase characters):</label>
+<input type="text" id="panNumber" maxlength="10">
+
+<label>Date of Birth:</label>
+<input type="date" id="dob">
+
+<label>Annual Income (₹):</label>
+<input type="number" id="annualIncome">
+
+<button onclick="calculateTax()">Calculate Tax</button>
+
+<div class="output" id="result"></div>
+
+<script>
+function calculateTax() {
+    let name = document.getElementById("fullName").value.trim();
+    let pan = document.getElementById("panNumber").value.trim();
+    let dob = document.getElementById("dob").value;
+    let income = parseFloat(document.getElementById("annualIncome").value);
+
+    if (pan.length !== 10 || pan !== pan.toUpperCase()) {
+        alert("PAN must be exactly 10 uppercase characters.");
+        return;
+    }
+
+    let birthDate = new Date(dob);
+    if (isNaN(birthDate.getTime())) {
+        alert("Please enter a valid Date of Birth.");
+        return;
+    }
+    let today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    let monthDiff = today.getMonth() - birthDate.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+
+    let tax = 0;
+    if (income <= 250000) {
+        tax = 0;
+    } else if (income <= 500000) {
+        tax = (income - 250000) * 0.05;
+    } else if (income <= 1000000) {
+        tax = (250000 * 0.05) + (income - 500000) * 0.20;
+    } else {
+        tax = (250000 * 0.05) + (500000 * 0.20) + (income - 1000000) * 0.30;
+    }
+
+    tax = Math.round(tax);
+
+    document.getElementById("result").innerHTML = `
+        <strong>Name:</strong> ${name.toUpperCase()}<br>
+        <strong>PAN:</strong> ${pan}<br>
+        <strong>Age:</strong> ${age} years<br>
+        <strong>Annual Income:</strong> ₹${income}<br>
+        <strong>Calculated Tax:</strong> ₹${tax}
+    `;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sports Team Player Details</title>
+</head>
+<body>
+
+<pre id="output"></pre>
+
+<script>
+    const player1 = {
+        name: "MS DHONI",
+        age: 42,
+        sport: "Cricket",
+        stats: {
+            matches: 400,
+            runs: 19000,
+            average: 59.9
+        }
+    };
+
+    const player2 = {
+        name: "Lionel Messi",
+        age: 38,
+        sport: "Football",
+        stats: {
+            matches: 800,
+            goals: 720,
+            assists: 300
+        }
+    };
+
+    const player3 = {
+        name: "Virat Kohli",
+        age: 36,
+        sport: "Cricket",
+        stats: {
+            matches: 500,
+            runs: 25000,
+            average: 57.2
+        }
+    };
+
+    const players = [player1, player2, player3];
+
+    let outputText = "";
+
+    const [p1, p2, p3] = players;
+
+    const { name: name1, sport: sport1, stats: { matches: matches1, runs: runs1, average: average1 } } = p1;
+    outputText += `Player ${name1} plays ${sport1}.\n`;
+    outputText += `Matches: ${matches1} | Runs: ${runs1} | Batting Average: ${average1}\n`;
+
+    const { name: name2, sport: sport2, stats: { matches: matches2, goals, assists } } = p2;
+    outputText += `Player ${name2} plays ${sport2}.\n`;
+    outputText += `Matches: ${matches2} | Goals: ${goals} | Assists: ${assists}\n`;
+
+    const { name: name3, sport: sport3, stats: { matches: matches3, runs: runs3, average: average3 } } = p3;
+    outputText += `Player ${name3} plays ${sport3}.\n`;
+    outputText += `Matches: ${matches3} | Runs: ${runs3} | Batting Average: ${average3}\n`;
+
+    document.getElementById("output").textContent = outputText;
+</script>
+
+</body>
+</html>
