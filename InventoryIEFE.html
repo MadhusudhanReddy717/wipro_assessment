@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Inventory Manager</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h1 { color: #333; }
+        .container { margin-top: 20px; }
+        select, input, button { padding: 5px; margin: 5px; }
+        .output { margin-top: 15px; font-weight: bold; color: black; white-space: pre-line; }
+    </style>
+</head>
+<body>
+
+    <h1>Product Inventory Manager</h1>
+    
+    <div class="container">
+        <label for="product">Select Product:</label>
+        <select id="product">
+            <option value="A">Product A</option>
+            <option value="B">Product B</option>
+            <option value="C">Product C</option>
+        </select><br>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" min="1" value="1"><br>
+
+        <button onclick="addStock()">Add Stock</button>
+        <button onclick="sellStock()">Sell Stock</button>
+
+        <div class="output" id="outputArea"></div>
+    </div>
+
+    <script>
+        const productInventory = (function () {
+            let stock = { A: 0, B: 0, C: 0 };
+            return {
+                getStock(product) { return stock[product]; },
+                addStock(product, quantity) { stock[product] += quantity; return stock[product]; },
+                sell(product, quantity) {
+                    if (quantity <= stock[product]) { stock[product] -= quantity; return true; }
+                    return false;
+                }
+            };
+        })();
+
+        function getQuantity() {
+            let qty = parseInt(document.getElementById("quantity").value);
+            return isNaN(qty) || qty < 1 ? 1 : qty;
+        }
+
+        function addStock() {
+            let product = document.getElementById("product").value;
+            let quantity = getQuantity();
+            let currentStock = productInventory.addStock(product, quantity);
+            document.getElementById("outputArea").innerText =
+                `Stock ${product} after adding: ${currentStock}`;
+        }
+
+        function sellStock() {
+            let product = document.getElementById("product").value;
+            let quantity = getQuantity();
+            let output = document.getElementById("outputArea");
+            if (productInventory.sell(product, quantity)) {
+                output.innerText += `\nStock ${product} Sold ${quantity} items.\nStock ${product} remaining: ${productInventory.getStock(product)}`;
+            } else {
+                output.innerText += `\n❌ Insufficient stock for Product ${product}`;
+            }
+        }
+    </script>
+
+</body>
+</html>
