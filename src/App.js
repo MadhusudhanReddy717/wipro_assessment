@@ -156,8 +156,8 @@ function App() {
     </div>
   );
 }
-
 export default App;
 
 // self closing horizontal tag for lines between the outputs <hr />
 // bottom margin for space using Bootstrap
+
